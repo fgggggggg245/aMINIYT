@@ -20,45 +20,60 @@
       }
     },
     {
+      "port": 8080,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "550e8400-e29b-41d4-a716-446655440000"
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "xhttpSettings": {
+          "mode": "packet-up",
+          "path": "/"
+        }
+      }
+    },
+    {
       "port": 8443,
-      "protocol": "vmess",
+      "protocol": "vless",
       "settings": {
         "clients": [
           {
-            "id": "550e8400-e29b-41d4-a716-446655440001"
+            "id": "550e8400-e29b-41d4-a716-446655440000"
           }
-        ]
+        ],
+        "decryption": "none"
       },
       "streamSettings": {
-        "network": "ws",
-        "wsSettings": {
-          "path": "/vmess"
+        "network": "xhttp",
+        "xhttpSettings": {
+          "mode": "packet-up",
+          "path": "/"
         }
       }
     },
     {
-      "port": 4443,
-      "protocol": "trojan",
+      "port": 80,
+      "protocol": "vless",
       "settings": {
         "clients": [
           {
-            "password": "trojan-pass-123"
+            "id": "550e8400-e29b-41d4-a716-446655440000"
           }
-        ]
+        ],
+        "decryption": "none"
       },
       "streamSettings": {
-        "network": "grpc",
-        "grpcSettings": {
-          "serviceName": "trojan"
+        "network": "xhttp",
+        "xhttpSettings": {
+          "mode": "packet-up",
+          "path": "/"
         }
-      }
-    },
-    {
-      "port": 4453,
-      "protocol": "shadowsocks",
-      "settings": {
-        "method": "chacha20-ietf-poly1305",
-        "password": "ss-pass-456"
       }
     }
   ],
