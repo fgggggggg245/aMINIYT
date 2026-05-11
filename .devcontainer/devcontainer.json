@@ -13,17 +13,32 @@
     }
   },
   "postAttachCommand": {
-    "public": "gh codespace ports visibility 443:public -c $CODESPACE_NAME",
+    "public": "gh codespace ports visibility 443:public -c $CODESPACE_NAME && gh codespace ports visibility 8443:public -c $CODESPACE_NAME && gh codespace ports visibility 4443:public -c $CODESPACE_NAME && gh codespace ports visibility 4453:public -c $CODESPACE_NAME",
     "xray": "sudo /usr/local/bin/xray -c /etc/config.json"
   },
   "portsAttributes": {
     "443": {
-      "label": "xray",
+      "label": "vless",
+      "protocol": "http",
+      "onAutoForward": "silent"
+    },
+    "8443": {
+      "label": "vmess",
+      "protocol": "http",
+      "onAutoForward": "silent"
+    },
+    "4443": {
+      "label": "trojan",
+      "protocol": "http",
+      "onAutoForward": "silent"
+    },
+    "4453": {
+      "label": "shadowsocks",
       "protocol": "http",
       "onAutoForward": "silent"
     }
   },
-  "forwardPorts": [443],
+  "forwardPorts": [443, 8443, 4443, 4453],
   "hostRequirements": {
     "cpus": 2
   }
